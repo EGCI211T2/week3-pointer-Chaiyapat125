@@ -10,30 +10,35 @@ int main() {
 
     p = new int[n];       
     cout << "Enter the numbers: ";
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         cin >> p[i];          
     }
 
     pl = p;
     cout << "Original:  ";
-    for (int i = 0; i < n; i++,pl++) {
+    for (int i = 0; i < n; i++,pl++) 
+    {
         cout << setw(3) << *pl;
     }
         cout << endl;
 
     pl = p;                   
     pr = p + (n - 1);           
-    for(i=0; i < n/2; i++) {
+    for(i=0; i < n/2; i++)
+    {
         tmp = *pl;
         *pl = *pr;
         *pr = tmp;
         pl++; pr--;
+     
     }
     
     //reversed
     pl = p;
     cout << "Reversed:  ";
-    for (int i = 0; i < n; i++, pl++) {
+    for (int i = 0; i < n; i++, pl++)
+    {
         cout << setw(3) << *pl;
     }
     cout << endl;
