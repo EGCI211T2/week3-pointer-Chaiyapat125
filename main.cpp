@@ -21,13 +21,6 @@ int main() {
     }
         cout << endl;
 
-    pl = p;                   
-    pr = p + n - 1;           
-    for(i=0; i < n/2; i++) {
-         tmp = *pl;
-        *pl = *pr;
-        *pr = tmp;
-        pl++; pr--;
     }
     
     //reversed
