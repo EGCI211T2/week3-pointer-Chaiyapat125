@@ -33,4 +33,3 @@ int main() {
 
     delete[] p; // free the rest memory
     return 0;
-}
