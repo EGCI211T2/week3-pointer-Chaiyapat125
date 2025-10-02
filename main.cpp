@@ -1,38 +1,43 @@
+
 #include <iostream>
 #include <iomanip>
-#define SIZE 10
-
 using namespace std;
 
-int main(int argc,char *argv[]){
-  int *pa, *pb, i, temp;
-int a[SIZE] ={1,2,3,4,5,6,7,8,9,10}; 
-pa = &a[0]; //pa =a;
-cout<<"Original: ";
-for (i=0; i<SIZE-1; i++ ,pa++){
-   cout<<setw(3)<<*pa ;//<<endl;
-  //cout<<pa<<endl;
-}
-cout<<setw(3)<<*pa<<endl;
+int main() {
+    int n, *pl, *pr, *p, tmp , i;
+    cout << "How many numbers: ";
+    cin >> n;
 
-pa = &a[0];  
-pb = &a[SIZE-1];
-for (i=0; i<SIZE/2; i++)
-{
-   temp = *pa;  
-   *pa = *pb;  
-   *pb = temp;
-   pa++;  pb--;
-}
-pa=&a[0];
-pb-=SIZE/2;
-cout<<"Reversed: ";
-for (i=0; i<SIZE-1; i++ ,pa++){
-   cout<<setw(3)<<*pa ;//<<endl;
-  //cout<<pa<<endl;
-}
-cout<<setw(3)<<*pa<<endl;
+    p = new int[n];       
+    cout << "Enter the numbers: ";
+    for (int i = 0; i < n; i++) {
+        cin >> p[i];          
+    }
 
+    pl = p;
+    cout << "Original:  ";
+    for (int i = 0; i < n; i++,pl++) {
+        cout << setw(3) << *pl;
+    }
+        cout << endl;
 
-return 0;
+    pl = p;                   
+    pr = p + n - 1;           
+    for(i=0; i < n/2; i++) {
+         tmp = *pl;
+        *pl = *pr;
+        *pr = tmp;
+        pl++; pr--;
+    }
+    
+    //reversed
+    pl = p;
+    cout << "Reversed:  ";
+    for (int i = 0; i < n; i++, pl++) {
+        cout << setw(3) << *pl;
+    }
+    cout << endl;
+
+    delete[] p; // free the rest memory
+    return 0;
 }
