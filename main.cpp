@@ -1,48 +1,52 @@
-
 #include <iostream>
-#include <iomanip>
+#include <iomanip>   
+#include <cstdlib>   //Atoi :L
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    int n, *pl, *pr, *p, tmp , i;
-    cout << "How many numbers: ";
-    cin >> n;
+    int *p, *pl, *pr, i, tmp, n;
 
-    p = new int[n];       
-    cout << "Enter the numbers: ";
-    for (int i = 0; i < n; i++) 
+    if (argc > 1) {
+        n = argc - 1;                
+        p = new int[n];
+        for (i = 0; i < n; i++)
+         {
+            p[i] = atoi(argv[i + 1]); 
+        }
+    } 
+    else 
     {
-        cin >> p[i];          
+        cout << "How many numbers? " ;
+        cin >> n;
+        p = new int[n];
+        cout << "What are the numbers? ";
+        for (i = 0; i < n; i++) {
+            cin >> p[i];
+        }
     }
 
+    //Original
     pl = p;
-    cout << "Original:  ";
-    for (int i = 0; i < n; i++,pl++) 
-    {
-        cout << setw(3) << *pl;
-    }
-        cout << endl;
+    cout << "Original:";
+    for (i = 0; i < n; i++, pl++) cout << setw(3) << *pl;
+    cout << '\n';
 
-    pl = p;                   
-    pr = p + (n - 1);           
-    for(i=0; i < n/2; i++)
-    {
-        tmp = *pl;
-        *pl = *pr;
+    //Reversed
+    pl = p; 
+    pr = p + (n - 1);
+    for (i = 0; i < n / 2; i++) {
+        tmp = *pl; 
+        *pl = *pr; 
         *pr = tmp;
         pl++; pr--;
-     
     }
-    
-    //reversed
+
+    //For the reveresed 
     pl = p;
-    cout << "Reversed:  ";
-    for (int i = 0; i < n; i++, pl++)
-    {
-        cout << setw(3) << *pl;
-    }
+    cout << "Reversed:";
+    for (i = 0; i < n; i++, pl++) cout << setw(3) << *pl;
     cout << endl;
 
-    delete[] p; // free the rest memory
+    delete[] p;
     return 0;
 }
