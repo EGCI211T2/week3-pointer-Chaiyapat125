@@ -3,7 +3,7 @@
 #include <iomanip>
 using namespace std;
 
-int main() {
+int main(int argc, char *argv[]) {
     int n, *pl, *pr, *p, tmp , i;
     cout << "How many numbers: ";
     cin >> n;
